@@ -11,6 +11,8 @@ export default function Content() {
   const [error, setError] = useState<boolean>(false);
   const [finish, setFinish] = useState(false);
   const [loading, setLoading] = useState<boolean>(true);
+  const [endListLoading, setEndListLoading] = useState<boolean>(false);
+  const [page, setPage] = useState(1);
   const [items, setItems] = useState<
     {
       status: number;
@@ -23,6 +25,14 @@ export default function Content() {
     }[]
   >([]);
 
+  useEffect(() => {
+    getAllObjects();
+  }, []);
+  useEffect(() => {
+    if (objectIDS.length > 0) {
+      getItems();
+    }
+  }, [objectIDS, page]);
   const getAllObjects = async () => {
     const response = await getRequest(`${BaseAPI}objects`);
     if (response.status === 200) {
@@ -33,16 +43,8 @@ export default function Content() {
     }
     setLoading(false);
   };
-  useEffect(() => {
-    getAllObjects();
-  }, []);
-  useEffect(() => {
-    if (objectIDS.length > 0) {
-      getItems();
-    }
-  }, [objectIDS]);
-
-  const getItems = async (page = 1) => {
+  const getItems = async () => {
+    setEndListLoading(true);
     const countItmesPerPage = 20;
     const ids = [];
     for (
@@ -56,10 +58,11 @@ export default function Content() {
       }
     }
 
-    const items = await Promise.all(
+    const newItems = await Promise.all(
       Array.from(ids, (id) => getRequest(`${BaseAPI}objects/${id}`))
     );
-    setItems(items);
+    setItems([...items, ...newItems]);
+    setEndListLoading(false);
   };
 
   return (
@@ -79,6 +82,7 @@ export default function Content() {
           />
         );
       })}
+      {endListLoading && <Loader />}
     </div>
   );
 }
