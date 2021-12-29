@@ -1,5 +1,6 @@
 import React from "react";
 import NoImage from "./NoImage";
+import "./item.css";
 
 interface ItemProps {
   title: string;
@@ -14,10 +15,17 @@ export default function Item({ primaryImage, title, department }: ItemProps) {
         {primaryImage === "" ? (
           <NoImage title={title} />
         ) : (
-          <img src={primaryImage} alt={title} className="w-full rounded-t-md" />
+          <img
+            src={primaryImage}
+            alt={title}
+            className="w-full rounded-t-md image"
+          />
         )}
 
-        <h3 className="m-2 text-lg font-bold">{title}</h3>
+        <h3 className="m-2 text-lg font-bold">
+          {title.substring(0, 30)}
+          {title.length > 30 ? "..." : ""}
+        </h3>
 
         <div className="flex flex-row flex-wrap mx-2 mb-2">
           <span className="w-1/3 text-sm">Department:</span>

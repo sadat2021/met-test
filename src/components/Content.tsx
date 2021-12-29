@@ -44,7 +44,6 @@ export default function Content() {
     setLoading(false);
   };
   const getItems = async () => {
-    setEndListLoading(true);
     const countItmesPerPage = 20;
     const ids = [];
     for (
@@ -64,6 +63,26 @@ export default function Content() {
     setItems([...items, ...newItems]);
     setEndListLoading(false);
   };
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      const { scrollTop, scrollHeight, clientHeight } =
+        document.documentElement;
+      console.log({ scrollTop, scrollHeight, clientHeight });
+      if (
+        scrollTop + clientHeight >= scrollHeight - 5 &&
+        !finish &&
+        !endListLoading
+      ) {
+        setEndListLoading(true);
+        setPage(page + 1);
+      }
+    },
+    {
+      passive: true,
+    }
+  );
 
   return (
     <div className="container flex flex-row flex-wrap p-4">
