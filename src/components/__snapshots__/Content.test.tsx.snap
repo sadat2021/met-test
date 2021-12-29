@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content Component Show error correctly 1`] = `
+<div>
+  <div
+    class="flex flex-row flex-wrap"
+  >
+    <div
+      class="container p-2 bg-red-500 text-white rounded "
+      data-testid="error"
+    >
+      An error occurred while receiving the Data.
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Content Component Show items correctly 1`] = `
+<div>
+  <div
+    class="flex flex-row flex-wrap"
+  >
+    <div
+      class="w-full xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 p-4"
+      data-testid="item"
+    >
+      <div
+        class="container flex flex-col bg-white shadow-md rounded-md cursor-pointer"
+      >
+        <img
+          alt="title1"
+          class="w-full rounded-t-md image"
+          src="pi1"
+        />
+        <h3
+          class="m-2 text-lg font-bold"
+        >
+          title1
+          
+        </h3>
+        <div
+          class="flex flex-row flex-wrap mx-2 mb-2"
+        >
+          <span
+            class="w-1/3 text-sm"
+          >
+            Department:
+          </span>
+          <span
+            class="w-2/3 text-sm font-bold text-right"
+          >
+            d1
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 p-4"
+      data-testid="item"
+    >
+      <div
+        class="container flex flex-col bg-white shadow-md rounded-md cursor-pointer"
+      >
+        <img
+          alt="title2"
+          class="w-full rounded-t-md image"
+          src="pi2"
+        />
+        <h3
+          class="m-2 text-lg font-bold"
+        >
+          title2
+          
+        </h3>
+        <div
+          class="flex flex-row flex-wrap mx-2 mb-2"
+        >
+          <span
+            class="w-1/3 text-sm"
+          >
+            Department:
+          </span>
+          <span
+            class="w-2/3 text-sm font-bold text-right"
+          >
+            d2
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-full xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-1/2 p-4"
+      data-testid="item"
+    >
+      <div
+        class="container flex flex-col bg-white shadow-md rounded-md cursor-pointer"
+      >
+        <img
+          alt="title3"
+          class="w-full rounded-t-md image"
+          src="pi3"
+        />
+        <h3
+          class="m-2 text-lg font-bold"
+        >
+          title3
+          
+        </h3>
+        <div
+          class="flex flex-row flex-wrap mx-2 mb-2"
+        >
+          <span
+            class="w-1/3 text-sm"
+          >
+            Department:
+          </span>
+          <span
+            class="w-2/3 text-sm font-bold text-right"
+          >
+            d3
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Content Component Show loading correctly 1`] = `
+<div>
+  <div
+    class="flex flex-row flex-wrap"
+  >
+    <div
+      class="loader mx-auto"
+      data-testid="loading"
+    />
+  </div>
+</div>
+`;
